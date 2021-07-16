@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project Name="apt32f102" Version="1">
+  <Description/>
+  <UIControl>
+    <Debug>
+      <DisableSIMConnector>yes</DisableSIMConnector>
+    </Debug>
+  </UIControl>
+  <Dependencies/>
+  <MonitorProgress>
+    <DebugLaunch>103</DebugLaunch>
+    <FlashOperate>97</FlashOperate>
+  </MonitorProgress>
+  <VirtualDirectory Name="arch">
+    <File Name="arch/crt0.S">
+      <FileOption/>
+    </File>
+    <File Name="arch/mem_init.c">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <VirtualDirectory Name="FWlib">
+    <File Name="FWlib/apt32f102_syscon.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_coret.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_gpio.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_lpt.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_crc.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_wwdt.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_countera.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_et.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_bt.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_gpt.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_sio.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_spi.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_uart.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_i2c.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_ept.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_rtc.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_adc.c">
+      <FileOption/>
+    </File>
+    <File Name="FWlib/apt32f102_ifc.c">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <VirtualDirectory Name="inc">
+    <File Name="include/apt32f102.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_adc.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_bt.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_ck801.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_coret.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_countera.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_crc.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_ept.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_et.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_gpio.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_gpt.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_i2c.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_ifc.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_lpt.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_rtc.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_sio.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_spi.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_syscon.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_types_local.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_uart.h">
+      <FileOption/>
+    </File>
+    <File Name="include/apt32f102_wwdt.h">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <VirtualDirectory Name="source">
+    <File Name="apt32f102_initial.c">
+      <FileOption/>
+    </File>
+    <File Name="apt32f102_interrupt.c">
+      <FileOption/>
+    </File>
+    <File Name="main.c">
+      <FileOption/>
+    </File>
+    <VirtualDirectory Name="user">
+      <File Name="user/hardware.h">
+        <FileOption/>
+      </File>
+      <File Name="user/usart.c">
+        <FileOption/>
+      </File>
+      <File Name="user/usart.h">
+        <FileOption/>
+      </File>
+    </VirtualDirectory>
+    <VirtualDirectory Name="atom">
+      <VirtualDirectory Name="kernel">
+        <File Name="atom/kernel/atom.h">
+          <FileOption/>
+        </File>
+        <File Name="atom/kernel/atomkernel.c">
+          <FileOption/>
+        </File>
+        <File Name="atom/kernel/atommutex.c">
+          <FileOption/>
+        </File>
+        <File Name="atom/kernel/atommutex.h">
+          <FileOption/>
+        </File>
+        <File Name="atom/kernel/atomqueue.c">
+          <FileOption/>
+        </File>
+        <File Name="atom/kernel/atomqueue.h">
+          <FileOption/>
+        </File>
+        <File Name="atom/kernel/atomsem.c">
+          <FileOption/>
+        </File>
+        <File Name="atom/kernel/atomsem.h">
+          <FileOption/>
+        </File>
+        <File Name="atom/kernel/atomtimer.c">
+          <FileOption/>
+        </File>
+        <File Name="atom/kernel/atomtimer.h">
+          <FileOption/>
+        </File>
+      </VirtualDirectory>
+      <VirtualDirectory Name="ports">
+        <VirtualDirectory Name="ck801">
+          <File Name="atom/ports/ck801/atomport-asm.s">
+            <FileOption/>
+          </File>
+          <File Name="atom/ports/ck801/atomport-private.h">
+            <FileOption/>
+          </File>
+          <File Name="atom/ports/ck801/atomport.c">
+            <FileOption/>
+          </File>
+          <File Name="atom/ports/ck801/atomport.h">
+            <FileOption/>
+          </File>
+          <File Name="atom/ports/ck801/atomport-private.c">
+            <FileOption/>
+          </File>
+        </VirtualDirectory>
+      </VirtualDirectory>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="drivers">
+    <File Name="drivers/apt32f102.c">
+      <FileOption/>
+    </File>
+    <File Name="drivers/apt32f102_ck801.c">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <BuildConfigs>
+    <BuildConfig Name="BuildSet">
+      <Target>
+        <ROMBank Selected="1">
+          <ROM1>
+            <InUse>no</InUse>
+            <Start>0x00000000</Start>
+            <Size>0x00010000</Size>
+          </ROM1>
+          <ROM2>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+          </ROM2>
+          <ROM3>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+          </ROM3>
+          <ROM4>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+          </ROM4>
+          <ROM5>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+          </ROM5>
+        </ROMBank>
+        <RAMBank>
+          <RAM1>
+            <InUse>no</InUse>
+            <Start>0x20000000</Start>
+            <Size>0x20001000</Size>
+            <Init>yes</Init>
+          </RAM1>
+          <RAM2>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+            <Init>yes</Init>
+          </RAM2>
+          <RAM3>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+            <Init>yes</Init>
+          </RAM3>
+          <RAM4>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+            <Init>yes</Init>
+          </RAM4>
+          <RAM5>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+            <Init>yes</Init>
+          </RAM5>
+        </RAMBank>
+        <CPU>ck801</CPU>
+        <UseMiniLib>yes</UseMiniLib>
+        <Endian>little</Endian>
+        <UseHardFloat>no</UseHardFloat>
+        <UseEnhancedLRW>no</UseEnhancedLRW>
+        <UseContinueBuild>no</UseContinueBuild>
+        <UseSemiHost>no</UseSemiHost>
+      </Target>
+      <Output>
+        <OutputName>makitaApt</OutputName>
+        <Type>Executable</Type>
+        <CreateHexFile>yes</CreateHexFile>
+        <CreateBinFile>yes</CreateBinFile>
+        <Preprocessor>no</Preprocessor>
+        <Disassmeble>yes</Disassmeble>
+        <CallGraph>no</CallGraph>
+        <Map>yes</Map>
+      </Output>
+      <User>
+        <BeforeCompile>
+          <RunUserProg>no</RunUserProg>
+          <UserProgName/>
+        </BeforeCompile>
+        <BeforeMake>
+          <RunUserProg>no</RunUserProg>
+          <UserProgName/>
+        </BeforeMake>
+        <AfterMake>
+          <RunUserProg>no</RunUserProg>
+          <UserProgName/>
+        </AfterMake>
+      </User>
+      <Compiler>
+        <Define>CONFIG_CSKY_MMU=0</Define>
+        <Undefine>__CSKY_ABIV2__</Undefine>
+        <Optim>Optimize size (-Os)</Optim>
+        <DebugLevel>Default (-g)</DebugLevel>
+        <IncludePath>$(CDKPath)/CSKY/csi/csi_core/csi_cdk/;$(CDKPath)/CSKY/csi/csi_core/include/;$(CDKPath)/CSKY/csi/csi_driver/include/;$(ProjectPath);$(ProjectPath)/atom/kernel;$(ProjectPath)/atom/ports/ck801;$(ProjectPath)/atom/tests;$(ProjectPath)/include;$(ProjectPath)/user</IncludePath>
+        <OtherFlags>-mistack</OtherFlags>
+        <Verbose>no</Verbose>
+        <Ansi>no</Ansi>
+        <Syntax>no</Syntax>
+        <Pedantic>no</Pedantic>
+        <PedanticErr>no</PedanticErr>
+        <InhibitWarn>no</InhibitWarn>
+        <AllWarn>yes</AllWarn>
+        <WarnErr>no</WarnErr>
+        <OneElfS>yes</OneElfS>
+        <Fstrict>no</Fstrict>
+      </Compiler>
+      <Asm>
+        <Define>CONFIG_CKCPU_MMU=0</Define>
+        <Undefine>__CSKY_ABIV2__</Undefine>
+        <IncludePath>$(CDKPath)/CSKY/csi/csi_core/csi_cdk/;$(CDKPath)/CSKY/csi/csi_core/include/;$(CDKPath)/CSKY/csi/csi_driver/include/;$(ProjectPath);$(ProjectPath)/atom/kernel;$(ProjectPath)/atom/ports/ck801;$(ProjectPath)/atom/tests</IncludePath>
+        <OtherFlags/>
+        <DebugLevel>gdwarf2</DebugLevel>
+      </Asm>
+      <Linker>
+        <Garbage>yes</Garbage>
+        <LDFile>$(ProjectPath)/ckcpu.ld</LDFile>
+        <LibName/>
+        <LibPath/>
+        <OtherFlags/>
+        <AutoLDFile>no</AutoLDFile>
+        <LinkType/>
+      </Linker>
+      <Debug>
+        <LoadApplicationAtStartup>yes</LoadApplicationAtStartup>
+        <Connector>ICE</Connector>
+        <StopAt>yes</StopAt>
+        <StopAtText>main</StopAtText>
+        <InitFile/>
+        <AutoRun>yes</AutoRun>
+        <ResetType>Soft Reset</ResetType>
+        <SoftResetVal>abcd1234</SoftResetVal>
+        <ResetAfterLoad>no</ResetAfterLoad>
+        <Dumpcore>no</Dumpcore>
+        <DumpcoreText>$(ProjectPath)/$(ProjectName).cdkcore</DumpcoreText>
+        <ConfigICE>
+          <IP>localhost</IP>
+          <PORT>1025</PORT>
+          <CPUNumber>0</CPUNumber>
+          <Clock>300</Clock>
+          <Delay>10</Delay>
+          <WaitReset>50</WaitReset>
+          <DDC>yes</DDC>
+          <TRST>no</TRST>
+          <DebugPrint>no</DebugPrint>
+          <Connect>Normal</Connect>
+          <ResetType>Soft Reset</ResetType>
+          <SoftResetVal>abcd1234</SoftResetVal>
+          <RTOSType>Bare Metal</RTOSType>
+          <DownloadToFlash>yes</DownloadToFlash>
+          <ResetAfterConnect>yes</ResetAfterConnect>
+          <GDBName/>
+          <GDBServerType>Local</GDBServerType>
+          <OtherFlags/>
+        </ConfigICE>
+        <ConfigSIM>
+          <SIMTarget>soccfg/cskyv2/smart_card_802_cfg.xml</SIMTarget>
+          <OtherFlags/>
+          <NoGraphic>yes</NoGraphic>
+          <Log>no</Log>
+          <SimTrace>no</SimTrace>
+        </ConfigSIM>
+      </Debug>
+      <Flash>
+        <InitFile/>
+        <Erase>Erase Sectors</Erase>
+        <Algorithms Path="">APT32F102_FLASHDOWN.elf</Algorithms>
+        <Program>yes</Program>
+        <Verify>yes</Verify>
+        <ResetAndRun>yes</ResetAndRun>
+        <ResetType>Soft Reset</ResetType>
+        <SoftResetVal>abcd1234</SoftResetVal>
+        <External>no</External>
+        <Command/>
+        <Arguments/>
+      </Flash>
+    </BuildConfig>
+  </BuildConfigs>
+  <DebugSessions>
+    <watchExpressions>ret_ptr:1;new_tcb:0</watchExpressions>
+    <memoryExpressions>0x200005c8;0x20000ff0;0x60000000;0x40080000</memoryExpressions>
+    <statistics>;;MHZ</statistics>
+    <peripheralTabs/>
+    <WatchDisplayFormat>1</WatchDisplayFormat>
+    <LocalDisplayFormat>0</LocalDisplayFormat>
+    <debugLayout>layout2|name=Project View;caption=Project View;state=31459324;dir=4;layer=1;row=0;pos=0;prop=68571;bestw=456;besth=277;minw=10;minh=5;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Debugger;caption=Debugger;state=14682108;dir=3;layer=1;row=0;pos=0;prop=86169;bestw=341;besth=315;minw=10;minh=5;maxw=-1;maxh=-1;floatx=60;floaty=707;floatw=418;floath=340|name=Frame Info;caption=Frame Info;state=14698492;dir=3;layer=1;row=0;pos=1;prop=106705;bestw=400;besth=300;minw=10;minh=5;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Peripherals;caption=Peripherals;state=31459326;dir=3;layer=1;row=0;pos=4;prop=100000;bestw=11;besth=43;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Serial Pane;caption=Serial Pane;state=14682110;dir=3;layer=1;row=0;pos=4;prop=100000;bestw=400;besth=300;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Editor;caption=;state=256;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Output View;caption=Output View;state=31459326;dir=3;layer=1;row=0;pos=1;prop=100000;bestw=958;besth=244;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Disassemble;caption=Disassemble;state=2099198;dir=3;layer=1;row=0;pos=2;prop=158373;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=1746;floaty=812;floatw=216;floath=236|name=Register;caption=Register;state=2099198;dir=4;layer=1;row=0;pos=1;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=83;floaty=444;floatw=218;floath=240|name=Outline;caption=Outline;state=2099198;dir=2;layer=0;row=2;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=1823;floaty=285;floatw=216;floath=236|dock_size(4,1,0)=210|dock_size(5,0,0)=20|dock_size(3,1,0)=335|</debugLayout>
+    <memoryTabColSizeExpressions>72:4;72:8;100:8;100:8;</memoryTabColSizeExpressions>
+  </DebugSessions>
+</Project>
