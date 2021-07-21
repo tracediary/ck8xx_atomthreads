@@ -57,7 +57,7 @@ void CORETHandler(void)
 	CK801->CORET_CVR = 0x0;							// Clear counter and flag
 	nop;
 	archSysTickCallback();
-	SYSCON_IWDCNT_Reload();
+	//SYSCON_IWDCNT_Reload();
 	
 }
 /*************************************************************/

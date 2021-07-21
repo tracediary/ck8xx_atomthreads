@@ -1,7 +1,7 @@
 /*
   ******************************************************************************
   * @file    main.c
-  * @author  Jason W
+  * @author  Tracediary
   * @version V1.0
   * @date    2021/03/25
   ******************************************************************************
@@ -49,11 +49,21 @@
 
 #include "atom.h"
 #include "atomport.h"
+#include "atomqueue.h"
+#include "atomtimer.h"
+#include "atomsem.h"
 
 
 /* defines -------------------------------------------------------------------*/
-#define MAIN_STACK_SIZE_BYTES       256
+#define MAIN_STACK_SIZE_BYTES       512
 #define IDLE_STACK_SIZE_BYTES       201
+
+
+typedef struct _QUEUE_DATA_T{
+	uint8_t queStatus;
+	uint32_t quedata;
+}QueData_t;
+
 
 /* Application threads' TCBs */
 static ATOM_TCB main_tcb;
@@ -70,6 +80,15 @@ static uint8_t idle_thread_stack[IDLE_STACK_SIZE_BYTES];
 
 
 /* Forward declarations */
+#define CALLBACK_TICKS			5
+#define QUEUE_ENTRIES			7
+
+static ATOM_QUEUE queueTest;
+static ATOM_SEM semTest;
+static ATOM_TIMER timer_cb;
+
+static QueData_t queueData[QUEUE_ENTRIES];
+
 
 
 
@@ -81,14 +100,47 @@ extern void APT32F102_init(void);
 extern void delay_nms(unsigned int t);
 
 
+
+static void timerTestCallback (POINTER cb_data)
+{
+	ATOM_TIMER *timerPointer = (ATOM_TIMER *)cb_data;
+	//if (atomTimerDelay(1) == ATOM_ERR_CONTEXT)
+	{
+		atomSemPut(&semTest);
+		timerPointer->cb_ticks = SYSTEM_TICKS_PER_SEC;
+		//timerPointer->cb_func = timerTestCallback;
+		//timerPointer->cb_data = timerPointer;
+		atomTimerRegister (timerPointer);
+	}
+	
+}
+
+
+
+
+
 static void test_second_func (uint32_t data)
 {
 	int sec = 0;
+	
+	uint8_t status;
+
+	QueData_t msg;
+	
+	Debug("enter sec func\n");
+
     while (1)
     {
+		status = atomQueueGet (&queueTest, 0, (uint8_t *)&msg);
+		if (status != ATOM_OK)
+		{
+			Debug("queue faile %d\n",status);
+			atomTimerDelay (1000);
+			continue;
+		}
 		sec++;
-        Debug("I am the second thread: %d\n",sec);
-        atomTimerDelay (1000);
+        Debug("task 2 the %d time run, get queue, the quedata is %d, the status is %d\n",sec, msg.quedata, msg.queStatus);
+
 		SYSCON_IWDCNT_Reload();
     }
 }
@@ -97,13 +149,52 @@ static void test_second_func (uint32_t data)
 
 static void main_thread_func (uint32_t data)
 {
+	int first = 1;
+	uint8_t status;
+	
+	QueData_t que = {2,58};
+
+	timer_cb.cb_ticks = SYSTEM_TICKS_PER_SEC;
+	timer_cb.cb_func = timerTestCallback;
+	timer_cb.cb_data = &timer_cb;
+	
+	Debug("enter main func\n");
+	
+	if (atomTimerRegister (&timer_cb) != ATOM_OK)
+	{
+		Debug("test timer failed!\n");
+		//TODO:failed
+	}
+	if(atomSemCreate (&semTest, 0) != ATOM_OK)
+	{
+		Debug("sem faild\n");
+	}
+	
+	
+	
+	Debug("init ok\n");
+	
 	GPIO_Init(GPIOA0, 13, Output);
 	GPIO_Write_High(GPIOA0, 13);
 
 	while(1)
 	{
-		atomTimerDelay (200);
+		status = atomSemGet(&semTest, 0);
+		if( status != ATOM_OK)
+		{
+			Debug("atom sem failed %d\n",status);
+			continue;
+		}
+		
+		
+		Debug("task 1 the %d time run, go to send queue\n",first++);
+		atomQueuePut (&queueTest, 0, (uint8_t *)&que);
+		
+		que.quedata++;
+		que.queStatus++;
+
 		GPIO_Reverse(GPIOA0, 13);
+		SYSCON_IWDCNT_Reload();
 	}
 }
 
@@ -163,20 +254,26 @@ int main(void)
     {
         /* Enable the system tick timer */
         archInitSystemTickTimer();
-
+		
+		if(atomQueueCreate (&queueTest, (uint8_t *)&queueData[0], sizeof(QueData_t), QUEUE_ENTRIES)!= ATOM_OK)
+		{
+			Debug("queue fail\n");
+		}
+#if 1
         /* Create an application thread */
         status = atomThreadCreate(&main_tcb,
                      11, main_thread_func, 0,
                      &main_thread_stack[0],
                      MAIN_STACK_SIZE_BYTES,
                      TRUE);
-
+#endif
+#if 1
 		atomThreadCreate(&sec_tcb,
-				 11, test_second_func, 0,
+				 12, test_second_func, 0,
 				 &scd_thread_stack[0],
 				 MAIN_STACK_SIZE_BYTES,
 				 TRUE);
-
+#endif
         if (status == ATOM_OK)
         {
             /**

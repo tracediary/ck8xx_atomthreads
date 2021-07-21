@@ -9,7 +9,7 @@
   <Dependencies/>
   <MonitorProgress>
     <DebugLaunch>103</DebugLaunch>
-    <FlashOperate>97</FlashOperate>
+    <FlashOperate>98</FlashOperate>
   </MonitorProgress>
   <VirtualDirectory Name="arch">
     <File Name="arch/crt0.S">

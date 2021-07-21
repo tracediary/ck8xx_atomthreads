@@ -1,7 +1,7 @@
 /**************************************************************************************************
  * @file		init the usart device
  * @brief		
- * @author		Jason.W
+ * @author		Tracediary
  * @date		2021.07.16
  * 
  * Redistribution and use in source and binary forms, with or without
