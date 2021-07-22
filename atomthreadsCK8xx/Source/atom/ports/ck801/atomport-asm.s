@@ -54,8 +54,7 @@ archContextSwitch:
     push      	r4-r8, r15             /* Save registers */
 
     st.w        r14, (r0)                        /* Save old SP in old_tcb_ptr->sp_save_ptr (first TCB element) */
-    ld.w        r1, (r1)                        /* Load new SP from new_tcb_ptr->sp_save_ptr (first TCB element) */
-    MOV         r14, r1                           
+    ld.w        r14, (r1)                        /* Load new SP from new_tcb_ptr->sp_save_ptr (first TCB element) */
 
     pop			r4-r8,r15             /* Load new registers */
 
@@ -94,8 +93,7 @@ archContextSwitch:
  */
 _archFirstThreadRestore:
 
-    ld.w        r0, (r0)                        /* Get SP (sp_save_ptr is conveniently first element of TCB) */
-    MOV         r14, r0                          /* Load new stack pointer */
+	ld.w        r14, (r0)                        /* Get SP (sp_save_ptr is conveniently first element of TCB) */
     pop			r4-r8, r15             /* Load new registers */
 
 
