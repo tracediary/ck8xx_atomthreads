@@ -37,19 +37,23 @@
 
 void usartInit(void)
 {
-	UART0_DeInit();                                                //clear all UART Register
-    UART_IO_Init(IO_UART0,1);                                     //use PA0.5->RXD0, PA0.12->TXD0
-    UARTInitRxTxIntEn(DEBUG_USART,416,UART_PAR_NONE);	                  //baudrate=sysclock/46=115200
-	
+	//UART0_DeInit();                                                //clear all UART Register
+    //UART_IO_Init(IO_UART0,1);                                     //use PA0.5->RXD0, PA0.12->TXD0
+    //UARTInitRxTxIntEn(DEBUG_USART,416,UART_PAR_NONE);	                  //baudrate=sysclock/46=115200
+	//UARTInitRxTxIntEn(UART0,416,UART_PAR_NONE);
 	
 	//UART0_DeInit();                                                //clear all UART Register
     //UART_IO_Init(IO_UART0,0);                                     //use PA0.1->RXD0, PA0.0->TXD0
     //UARTInitRxTxIntEn(UART0,208,UART_PAR_NONE);	                  //baudrate=sysclock/46=115200
-	UART0_Int_Enable();
+	//UART0_Int_Enable();
+	UART1_DeInit();
+	UART_IO_Init(IO_UART1,0);
+	UARTInitRxTxIntEn(UART1,416,UART_PAR_NONE);
+	UART1_Int_Enable();
 }
 
 
-
+#if 0
 //redefine the printf to usart0
 int fputc(int ch, FILE *f)
 {
@@ -57,4 +61,12 @@ int fputc(int ch, FILE *f)
 	
 	return (ch);
 }
+#else
 
+int fputc(int ch, FILE *f)
+{
+	UARTTxByte(UART1, (uint8_t) ch);
+	
+	return (ch);
+}
+#endif
