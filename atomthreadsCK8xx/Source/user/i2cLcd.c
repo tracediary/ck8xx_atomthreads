@@ -24,7 +24,7 @@ void lcd_send_cmd (char cmd)
 	
 	I2C_WRITE_nByte(SLAVE_ADDRESS_LCD, (U8_T *)i2c_frame_data, 4);
 
-	atomTimerDelay(1);
+	//atomTimerDelay(1);
 }
 
 void lcd_send_data (char data)
@@ -40,7 +40,7 @@ void lcd_send_data (char data)
 	
 	I2C_WRITE_nByte(SLAVE_ADDRESS_LCD, (U8_T *)i2c_frame_data, 4);
 
-	atomTimerDelay(1);
+	//atomTimerDelay(1);
 }
 
 void lcd_clear (void)
